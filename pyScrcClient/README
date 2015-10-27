@@ -1,0 +1,16 @@
+This is a Python client for the Simulated Car Racing Championship 2012
+
+http://games.ws.dei.polimi.it/competitions/scr/
+
+ I'm sharing my code that implements a client for the SCRC.
+Its devided in 5 files:
+
+pyclient.py: main file, you can make it executable on linux and it has the same command line parameters as the C++/Java client.
+
+driver.py: file holding the driver class, with a method drive that should hold drive the car.
+
+carState.py: file holding the car state class, the state can be updated with a message from the torcs server.
+
+carControl.py: file holding the car control class, the control parameters can be set and then transformed in a message for the torcs server
+
+msgParser.py: file holding a parser class for translating the torcs server message in usable variables and vice versa
