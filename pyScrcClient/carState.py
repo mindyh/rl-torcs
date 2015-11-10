@@ -10,27 +10,39 @@ class CarState(object):
     Class that hold all the car state variables
     '''
 
-
     def __init__(self):
         '''Constructor'''
         self.parser = msgParser.MsgParser()
         self.sensors = None
+        # angle of the car from the direction of the track (radians)
+        # [-pi, +pi]
         self.angle = None
         self.curLapTime = None
         self.damage = None
+        # distance from the start line, starting with 0 at the start line.
+        # Not very useful
         self.distFromStart = None
+        # the distance going forward along the track that the car has gone
+        # since the start of the race 
         self.distRaced = None
         self.focus = None
         self.fuel = None
         self.gear = None
+        # lap time is in seconds
         self.lastLapTime = None
         self.opponents = None
         self.racePos = None
         self.rpm = None
+        # speed is in kph
+        # forwards
         self.speedX = None
+        # sideways
         self.speedY = None
+        # airborne
         self.speedZ = None
         self.track = None
+        # how you are from the edge of the track
+        # [-1,1] - left edge to right edge
         self.trackPos = None
         self.wheelSpinVel = None
         self.z = None
@@ -194,6 +206,9 @@ class CarState(object):
     def setLastLapTimeD(self):
         self.lastLapTime = self.getFloatD('lastLapTime')
     
+    def getLastLapTime(self):
+        return self.lastLapTime
+
     def setOpponents(self, opponents):
         self.opponents = opponents
         
@@ -256,7 +271,7 @@ class CarState(object):
     
     def getTrack(self):
         return self.track
-    
+
     def setTrackPos(self, trackPos):
         self.trackPos = trackPos
     

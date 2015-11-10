@@ -102,11 +102,13 @@ while not shutdownClient:
             print 'Client Restart'
             break
         
+        # actually drive
         currentStep += 1
         if currentStep != arguments.max_steps:
             if buf != None:
                 buf = d.drive(buf)
         else:
+            print 'hit %d steps, quitting' % currentStep
             buf = '(meta 1)'
         
         if verbose:
@@ -120,7 +122,8 @@ while not shutdownClient:
                 sys.exit(-1)
     
     curEpisode += 1
-    
+    print 'Iteration: ', curEpisode
+
     if curEpisode == arguments.max_episodes:
         shutdownClient = True
         
